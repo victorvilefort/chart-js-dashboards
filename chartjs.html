@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div>
+        <canvas id="myChart" style="position: relative; width: 80vw; height: 40vh;"></canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart2" style="position: relative; width: 80vw; height: 40vh;"></canvas>
+    </div>
+    
+</body>
+
+<script>
+    let labels = ['12:00', 
+    '13:00', 
+    '14:00', 
+    '15:00', 
+    '16:00', 
+    '17:00'];
+
+    let temperatura = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 29, 28, 25, 22, 23,],
+        }]
+    };
+
+    let umidade = {
+        labels: labels,
+        datasets: [{
+            label: 'Umidade',
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(54, 162, 235)',
+            data: [80, 82, 80, 85, 80, 83],
+        }]
+    };
+
+     let data = {
+        labels: labels,
+        datasets: [
+            temperatura.datasets[0],
+            umidade.datasets[0]
+        ]
+    };
+
+    let config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+</script>
+
+<script>
+    let labels2 = ['Janeiro', 
+    'Fevereiro', 
+    'Março', 
+    'Abril', 
+    'Maio', 
+    'Junho'];
+
+    let mediaTemperatura = {
+        labels: labels2,
+        datasets: [{
+            label: 'Média de Temperatura %',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [22, 24, 27, 23, 20, 18],
+        }]
+    };
+
+    let mediaUmidade = {
+        labels: labels2,
+        datasets: [{
+            label: 'Média de Umidade %',
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(54, 162, 235)',
+            data: [90, 89, 93, 87, 88, 82],
+        }]
+    };
+
+        let data2 = {
+            labels: labels2,
+            datasets: [
+                mediaTemperatura.datasets[0],
+                mediaUmidade.datasets[0]
+            ]
+        };
+
+    let config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+</script>
+
+
+
+<script>
+    let myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    let myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>
+
+</html>
